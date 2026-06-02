@@ -27,35 +27,77 @@
     {
       "category": "Testing",
       "skills": [
-        { "name": "Functional & Non-functional", "level": 95 },
-        { "name": "Regression / Smoke / Sanity", "level": 95 },
-        { "name": "GUI / Usability / A/B", "level": 90 },
-        { "name": "Pixel-perfect", "level": 90 }
+        {
+          "name": "Functional & Non-functional",
+          "level": 95
+        },
+        {
+          "name": "Regression / Smoke / Sanity",
+          "level": 95
+        },
+        {
+          "name": "GUI / Usability / A/B",
+          "level": 90
+        },
+        {
+          "name": "Pixel-perfect",
+          "level": 90
+        }
       ]
     },
     {
       "category": "API & Data",
       "skills": [
-        { "name": "Postman / Swagger", "level": 90 },
-        { "name": "REST / GraphQL", "level": 85 },
-        { "name": "MySQL", "level": 75 }
+        {
+          "name": "Postman / Swagger",
+          "level": 90
+        },
+        {
+          "name": "REST / GraphQL",
+          "level": 85
+        },
+        {
+          "name": "MySQL",
+          "level": 75
+        }
       ]
     },
     {
       "category": "Tools & Logs",
       "skills": [
-        { "name": "Charles / ADB / PuTTY", "level": 85 },
-        { "name": "Kibana / DataDog / Sentry", "level": 85 },
-        { "name": "Firebase / Crashlytics", "level": 80 },
-        { "name": "Jira / TestRail / TestLink", "level": 95 }
+        {
+          "name": "Charles / ADB / PuTTY",
+          "level": 85
+        },
+        {
+          "name": "Kibana / DataDog / Sentry",
+          "level": 85
+        },
+        {
+          "name": "Firebase / Crashlytics",
+          "level": 80
+        },
+        {
+          "name": "Jira / TestRail / TestLink",
+          "level": 95
+        }
       ]
     },
     {
       "category": "Platforms",
       "skills": [
-        { "name": "iOS / Android / Web", "level": 95 },
-        { "name": "Git / GitHub", "level": 90 },
-        { "name": "Figma / Split.io", "level": 80 }
+        {
+          "name": "iOS / Android / Web",
+          "level": 95
+        },
+        {
+          "name": "Git / GitHub",
+          "level": 90
+        },
+        {
+          "name": "Figma / Split.io",
+          "level": 80
+        }
       ]
     }
   ],
@@ -86,7 +128,12 @@
         "Collaborate with developers, designers, and product managers within an Agile/Scrum environment."
       ],
       "version": "v2025.5.0",
-      "tags": ["iGaming", "Mobile", "Web", "API"]
+      "tags": [
+        "iGaming",
+        "Mobile",
+        "Web",
+        "API"
+      ]
     },
     {
       "id": "mlsdev-2019",
@@ -106,7 +153,13 @@
         "Tested push notifications, deep links, and mobile functionality using ADB."
       ],
       "version": "v2019.7.0",
-      "tags": ["E-Commerce", "iOS", "Android", "Automation", "API"]
+      "tags": [
+        "E-Commerce",
+        "iOS",
+        "Android",
+        "Automation",
+        "API"
+      ]
     },
     {
       "id": "gemicle-2018",
@@ -126,7 +179,12 @@
         "Collaborated closely with developers, QA team, and product stakeholders to ensure product quality."
       ],
       "version": "v2018.8.0",
-      "tags": ["IoT", "Embedded", "Hardware", "Firmware"]
+      "tags": [
+        "IoT",
+        "Embedded",
+        "Hardware",
+        "Firmware"
+      ]
     }
   ],
   "education": [
@@ -155,8 +213,14 @@
     }
   ],
   "languages": [
-    { "name": "English", "level": "B1 — Intermediate" },
-    { "name": "Ukrainian", "level": "Native" }
+    {
+      "name": "English",
+      "level": "B1 — Intermediate"
+    },
+    {
+      "name": "Ukrainian",
+      "level": "Native"
+    }
   ],
   "interests": [
     "Electronic device repair",
