@@ -105,17 +105,61 @@
   }
 
   @media print {
+    @page {
+      size: A4;
+      margin: 12mm 10mm;
+    }
+
+    html,
+    body {
+      background: white !important;
+      color: #0f172a !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
     .no-print {
       display: none !important;
     }
 
-    body {
-      background: white;
-      color: black;
-    }
-
     .print-break {
       page-break-before: always;
+    }
+
+    .break-inside-avoid {
+      page-break-inside: avoid;
+    }
+
+    a[href]::after {
+      content: '';
+    }
+
+    section {
+      page-break-inside: avoid;
+    }
+
+    h1,
+    h2,
+    h3 {
+      page-break-after: avoid;
+    }
+
+    .dark {
+      color-scheme: light;
+    }
+
+    .dark body,
+    .dark .bg-slate-950,
+    .dark [class*='bg-slate'] {
+      background: white !important;
+      color: #0f172a !important;
+    }
+
+    .terminal-card,
+    [class*='backdrop-blur'] {
+      background: white !important;
+      backdrop-filter: none !important;
+      border: 1px solid #e2e8f0 !important;
     }
   }
 }

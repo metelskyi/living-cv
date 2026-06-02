@@ -13,6 +13,19 @@ const SITE_URL =
 const RATE_LIMIT = 10;
 const WINDOW_MS = 60 * 1000;
 
+/**
+ * Server-side PDF generation via Puppeteer + chromium.
+ *
+ * Works locally when PUPPETEER_EXECUTABLE_PATH points to a system Chrome.
+ *
+ * On Vercel (production), this route is bypassed — the homepage's
+ * "Save as PDF" button uses the browser's built-in window.print()
+ * instead, because @sparticuz/chromium's 66MB binary exceeds Vercel
+ * Hobby plan's 50MB function size limit.
+ *
+ * If you upgrade to Vercel Pro (250MB), this route will work.
+ */
+
 async function getBrowser(): Promise<Browser> {
   const isProduction = process.env.NODE_ENV === 'production';
   const isVercel = !!process.env.VERCEL;
