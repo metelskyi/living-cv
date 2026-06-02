@@ -1,236 +1,236 @@
 {
-    "personal":  {
-                     "name":  "Ihor Metelskyi",
-                     "title":  "Software QA Engineer",
-                     "photo":  "/profile.png",
-                     "location":  {
-                                      "city":  "Vinnytsia",
-                                      "country":  "Ukraine"
-                                  },
-                     "contacts":  {
-                                      "phone":  "+380936693508",
-                                      "email":  "Ihor.Metelskyi@gmail.com",
-                                      "telegram":  "@Igor_met",
-                                      "github":  "https://github.com/IgorMet",
-                                      "linkedin":  "https://www.linkedin.com/in/ihor-metelskyi/"
-                                  }
-                 },
-    "summary":  "Experienced QA Engineer with over 7 years in IT, specializing in iGaming, E-Commerce, IoT/Smart Home and Embedded Systems. Skilled in manual testing across web, mobile, and hardware platforms, with a track record of ensuring high-quality product releases.",
-    "hero":  {
-                 "tagline":  [
-                                 "While others submit PDFs...",
-                                 "I ship experiences."
-                             ],
-                 "subtitle":  "Senior QA Engineer • 7+ years in IT • iGaming • IoT • Mobile"
-             },
-    "skillGroups":  [
-                        {
-                            "category":  "Testing",
-                            "skills":  [
-                                           {
-                                               "name":  "Functional \u0026 Non-functional",
-                                               "level":  95
-                                           },
-                                           {
-                                               "name":  "Regression / Smoke / Sanity",
-                                               "level":  95
-                                           },
-                                           {
-                                               "name":  "GUI / Usability / A/B",
-                                               "level":  90
-                                           },
-                                           {
-                                               "name":  "Pixel-perfect",
-                                               "level":  90
-                                           }
-                                       ]
-                        },
-                        {
-                            "category":  "API \u0026 Data",
-                            "skills":  [
-                                           {
-                                               "name":  "Postman / Swagger",
-                                               "level":  90
-                                           },
-                                           {
-                                               "name":  "REST / GraphQL",
-                                               "level":  85
-                                           },
-                                           {
-                                               "name":  "MySQL",
-                                               "level":  75
-                                           }
-                                       ]
-                        },
-                        {
-                            "category":  "Tools \u0026 Logs",
-                            "skills":  [
-                                           {
-                                               "name":  "Charles / ADB / PuTTY",
-                                               "level":  85
-                                           },
-                                           {
-                                               "name":  "Kibana / DataDog / Sentry",
-                                               "level":  85
-                                           },
-                                           {
-                                               "name":  "Firebase / Crashlytics",
-                                               "level":  80
-                                           },
-                                           {
-                                               "name":  "Jira / TestRail / TestLink",
-                                               "level":  95
-                                           }
-                                       ]
-                        },
-                        {
-                            "category":  "Platforms",
-                            "skills":  [
-                                           {
-                                               "name":  "iOS / Android / Web",
-                                               "level":  95
-                                           },
-                                           {
-                                               "name":  "Git / GitHub",
-                                               "level":  90
-                                           },
-                                           {
-                                               "name":  "Figma / Split.io",
-                                               "level":  80
-                                           }
-                                       ]
-                        }
-                    ],
-    "softSkills":  [
-                       "Attention to Details",
-                       "Analytical Thinking",
-                       "Problem-Solving",
-                       "Collaboration and Teamwork",
-                       "Adaptability",
-                       "Time Management",
-                       "Critical Thinking",
-                       "Patience and Persistence"
-                   ],
-    "experiences":  [
-                        {
-                            "id":  "evoplay-2025",
-                            "company":  "Evoplay",
-                            "project":  "Evoplay",
-                            "position":  "QA Engineer",
-                            "period":  "May 2025 — Present",
-                            "periodShort":  "since 05.2025",
-                            "domain":  "iGaming",
-                            "responsibilities":  [
-                                                     "Perform manual testing of web and mobile casino games, including functional, regression, smoke, and sanity testing.",
-                                                     "Create and maintain test cases and checklists based on requirements and game specifications.",
-                                                     "Report and track defects in Jira, ensuring clear reproduction steps and proper prioritization.",
-                                                     "Conduct API testing using Postman (REST, JSON, HTTP methods, status codes).",
-                                                     "Collaborate with developers, designers, and product managers within an Agile/Scrum environment."
-                                                 ],
-                            "version":  "v2025.5.0",
-                            "tags":  [
-                                         "iGaming",
-                                         "Mobile",
-                                         "Web",
-                                         "API"
-                                     ]
-                        },
-                        {
-                            "id":  "mlsdev-2019",
-                            "company":  "MLSDev",
-                            "project":  "Gopuff",
-                            "position":  "QA Engineer",
-                            "period":  "Jul 2019 — Jul 2024",
-                            "periodShort":  "07.2019 - 07.2024",
-                            "domain":  "E-Commerce / Delivery",
-                            "responsibilities":  [
-                                                     "Conducted manual testing for Web, iOS, and Android apps, ensuring stable releases.",
-                                                     "Created and maintained test documentation (cases, checklists, reports, plans).",
-                                                     "Executed and maintained automation tests (Cucumber, Selenium IDE).",
-                                                     "Performed API testing using Postman and Swagger.",
-                                                     "Analyzed logs (Android, server) to identify and verify bugs.",
-                                                     "Collaborated closely with developers and product managers to ensure high-quality features.",
-                                                     "Tested push notifications, deep links, and mobile functionality using ADB."
-                                                 ],
-                            "version":  "v2019.7.0",
-                            "tags":  [
-                                         "E-Commerce",
-                                         "iOS",
-                                         "Android",
-                                         "Automation",
-                                         "API"
-                                     ]
-                        },
-                        {
-                            "id":  "gemicle-2018",
-                            "company":  "Gemicle",
-                            "project":  "CLAP",
-                            "position":  "Software \u0026 Hardware QA Engineer",
-                            "period":  "Aug 2018 — Jul 2019",
-                            "periodShort":  "08.2018 - 07.2019",
-                            "domain":  "IoT / Smart Home",
-                            "responsibilities":  [
-                                                     "Performed black-box and gray-box testing of IoT devices and firmware.",
-                                                     "Analyzed requirements and product documentation for a Smart Home (IoT) system.",
-                                                     "Designed and maintained test cases, test scenarios, and checklists.",
-                                                     "Performed manual testing (functional, regression, smoke) for web and mobile applications.",
-                                                     "Identified, reported, and tracked defects using Jira.",
-                                                     "Verified bug fixes and conducted re-testing across multiple environments.",
-                                                     "Collaborated closely with developers, QA team, and product stakeholders to ensure product quality."
-                                                 ],
-                            "version":  "v2018.8.0",
-                            "tags":  [
-                                         "IoT",
-                                         "Embedded",
-                                         "Hardware",
-                                         "Firmware"
-                                     ]
-                        }
-                    ],
-    "education":  [
-                      {
-                          "period":  "2008 — 2013",
-                          "institution":  "Vinnytsia State Pedagogical University",
-                          "specialty":  "Rehabilitation of humans",
-                          "degree":  "Master"
-                      },
-                      {
-                          "period":  "Nov 2018 — May 2019",
-                          "institution":  "AEC (American English Center)"
-                      }
-                  ],
-    "courses":  [
-                    {
-                        "period":  "April 2025",
-                        "title":  "Mastering Postman: A Comprehensive API Testing Course",
-                        "provider":  "Udemy",
-                        "certificateUrl":  "https://ude.my/UC-0b3a7a35-15c1-4f1d-9d62-5d8c93ce78c2"
-                    },
-                    {
-                        "period":  "May 2019 — Jun 2019",
-                        "title":  "Manual Software QA Engineer",
-                        "provider":  "QATestLab"
-                    }
-                ],
-    "languages":  [
-                      {
-                          "name":  "English",
-                          "level":  "B1 — Intermediate"
-                      },
-                      {
-                          "name":  "Ukrainian",
-                          "level":  "Native"
-                      }
-                  ],
-    "interests":  [
-                      "Electronic device repair",
-                      "Development of Telegram bots"
-                  ],
-    "stats":  {
-                  "yearsInIT":  7,
-                  "companies":  3,
-                  "projects":  3,
-                  "platforms":  3,
-                  "testCasesAuthored":  1500
-              }
+  "personal": {
+    "name": "Ihor Metelskyi [MIGRATION-TEST]",
+    "title": "Software QA Engineer",
+    "photo": "/profile.png",
+    "location": {
+      "city": "Vinnytsia",
+      "country": "Ukraine"
+    },
+    "contacts": {
+      "phone": "+380936693508",
+      "email": "Ihor.Metelskyi@gmail.com",
+      "telegram": "@Igor_met",
+      "github": "https://github.com/IgorMet",
+      "linkedin": "https://www.linkedin.com/in/ihor-metelskyi/"
+    }
+  },
+  "summary": "Experienced QA Engineer with over 7 years in IT, specializing in iGaming, E-Commerce, IoT/Smart Home and Embedded Systems. Skilled in manual testing across web, mobile, and hardware platforms, with a track record of ensuring high-quality product releases.",
+  "hero": {
+    "tagline": [
+      "While others submit PDFs...",
+      "I ship experiences."
+    ],
+    "subtitle": "Senior QA Engineer • 7+ years in IT • iGaming • IoT • Mobile"
+  },
+  "skillGroups": [
+    {
+      "category": "Testing",
+      "skills": [
+        {
+          "name": "Functional & Non-functional",
+          "level": 95
+        },
+        {
+          "name": "Regression / Smoke / Sanity",
+          "level": 95
+        },
+        {
+          "name": "GUI / Usability / A/B",
+          "level": 90
+        },
+        {
+          "name": "Pixel-perfect",
+          "level": 90
+        }
+      ]
+    },
+    {
+      "category": "API & Data",
+      "skills": [
+        {
+          "name": "Postman / Swagger",
+          "level": 90
+        },
+        {
+          "name": "REST / GraphQL",
+          "level": 85
+        },
+        {
+          "name": "MySQL",
+          "level": 75
+        }
+      ]
+    },
+    {
+      "category": "Tools & Logs",
+      "skills": [
+        {
+          "name": "Charles / ADB / PuTTY",
+          "level": 85
+        },
+        {
+          "name": "Kibana / DataDog / Sentry",
+          "level": 85
+        },
+        {
+          "name": "Firebase / Crashlytics",
+          "level": 80
+        },
+        {
+          "name": "Jira / TestRail / TestLink",
+          "level": 95
+        }
+      ]
+    },
+    {
+      "category": "Platforms",
+      "skills": [
+        {
+          "name": "iOS / Android / Web",
+          "level": 95
+        },
+        {
+          "name": "Git / GitHub",
+          "level": 90
+        },
+        {
+          "name": "Figma / Split.io",
+          "level": 80
+        }
+      ]
+    }
+  ],
+  "softSkills": [
+    "Attention to Details",
+    "Analytical Thinking",
+    "Problem-Solving",
+    "Collaboration and Teamwork",
+    "Adaptability",
+    "Time Management",
+    "Critical Thinking",
+    "Patience and Persistence"
+  ],
+  "experiences": [
+    {
+      "id": "evoplay-2025",
+      "company": "Evoplay",
+      "project": "Evoplay",
+      "position": "QA Engineer",
+      "period": "May 2025 — Present",
+      "periodShort": "since 05.2025",
+      "domain": "iGaming",
+      "responsibilities": [
+        "Perform manual testing of web and mobile casino games, including functional, regression, smoke, and sanity testing.",
+        "Create and maintain test cases and checklists based on requirements and game specifications.",
+        "Report and track defects in Jira, ensuring clear reproduction steps and proper prioritization.",
+        "Conduct API testing using Postman (REST, JSON, HTTP methods, status codes).",
+        "Collaborate with developers, designers, and product managers within an Agile/Scrum environment."
+      ],
+      "version": "v2025.5.0",
+      "tags": [
+        "iGaming",
+        "Mobile",
+        "Web",
+        "API"
+      ]
+    },
+    {
+      "id": "mlsdev-2019",
+      "company": "MLSDev",
+      "project": "Gopuff",
+      "position": "QA Engineer",
+      "period": "Jul 2019 — Jul 2024",
+      "periodShort": "07.2019 - 07.2024",
+      "domain": "E-Commerce / Delivery",
+      "responsibilities": [
+        "Conducted manual testing for Web, iOS, and Android apps, ensuring stable releases.",
+        "Created and maintained test documentation (cases, checklists, reports, plans).",
+        "Executed and maintained automation tests (Cucumber, Selenium IDE).",
+        "Performed API testing using Postman and Swagger.",
+        "Analyzed logs (Android, server) to identify and verify bugs.",
+        "Collaborated closely with developers and product managers to ensure high-quality features.",
+        "Tested push notifications, deep links, and mobile functionality using ADB."
+      ],
+      "version": "v2019.7.0",
+      "tags": [
+        "E-Commerce",
+        "iOS",
+        "Android",
+        "Automation",
+        "API"
+      ]
+    },
+    {
+      "id": "gemicle-2018",
+      "company": "Gemicle",
+      "project": "CLAP",
+      "position": "Software & Hardware QA Engineer",
+      "period": "Aug 2018 — Jul 2019",
+      "periodShort": "08.2018 - 07.2019",
+      "domain": "IoT / Smart Home",
+      "responsibilities": [
+        "Performed black-box and gray-box testing of IoT devices and firmware.",
+        "Analyzed requirements and product documentation for a Smart Home (IoT) system.",
+        "Designed and maintained test cases, test scenarios, and checklists.",
+        "Performed manual testing (functional, regression, smoke) for web and mobile applications.",
+        "Identified, reported, and tracked defects using Jira.",
+        "Verified bug fixes and conducted re-testing across multiple environments.",
+        "Collaborated closely with developers, QA team, and product stakeholders to ensure product quality."
+      ],
+      "version": "v2018.8.0",
+      "tags": [
+        "IoT",
+        "Embedded",
+        "Hardware",
+        "Firmware"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "period": "2008 — 2013",
+      "institution": "Vinnytsia State Pedagogical University",
+      "specialty": "Rehabilitation of humans",
+      "degree": "Master"
+    },
+    {
+      "period": "Nov 2018 — May 2019",
+      "institution": "AEC (American English Center)"
+    }
+  ],
+  "courses": [
+    {
+      "period": "April 2025",
+      "title": "Mastering Postman: A Comprehensive API Testing Course",
+      "provider": "Udemy",
+      "certificateUrl": "https://ude.my/UC-0b3a7a35-15c1-4f1d-9d62-5d8c93ce78c2"
+    },
+    {
+      "period": "May 2019 — Jun 2019",
+      "title": "Manual Software QA Engineer",
+      "provider": "QATestLab"
+    }
+  ],
+  "languages": [
+    {
+      "name": "English",
+      "level": "B1 — Intermediate"
+    },
+    {
+      "name": "Ukrainian",
+      "level": "Native"
+    }
+  ],
+  "interests": [
+    "Electronic device repair",
+    "Development of Telegram bots"
+  ],
+  "stats": {
+    "yearsInIT": 7,
+    "companies": 3,
+    "projects": 3,
+    "platforms": 3,
+    "testCasesAuthored": 1500
+  }
 }
