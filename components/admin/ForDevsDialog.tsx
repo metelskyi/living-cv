@@ -72,11 +72,6 @@ export function ForDevsDialog({
                 </div>
               ))}
 
-              <div className="pt-4 border-t border-hacker-green/10">
-                <p className="font-mono text-xs text-hacker-cyan/50">
-                  {'// source: github.com/metelskyi/living-cv'}
-                </p>
-              </div>
             </div>
           </motion.div>
         </motion.div>

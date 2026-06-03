@@ -78,9 +78,16 @@ export interface CVStats {
 
 export interface Display {
   showFooter: boolean;
-  showSocialLinks: boolean;
   showPdfButton: boolean;
   showPhoto: boolean;
+  contacts: {
+    showAll: boolean;
+    showPhone: boolean;
+    showEmail: boolean;
+    showTelegram: boolean;
+    showGithub: boolean;
+    showLinkedin: boolean;
+  };
 }
 
 export interface CV {

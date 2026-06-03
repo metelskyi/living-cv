@@ -358,20 +358,85 @@ export function CVEditor({ cv, onChange }: CVEditorProps) {
           onChange={(v) => update(cv, onChange, { display: { ...cv.display, showPhoto: v } })}
         />
         <Toggle
-          label="Show footer (social networks, copyright)"
+          label="Show footer"
           checked={cv.display.showFooter}
           onChange={(v) => update(cv, onChange, { display: { ...cv.display, showFooter: v } })}
-        />
-        <Toggle
-          label="Show social links in header / contact section"
-          checked={cv.display.showSocialLinks}
-          onChange={(v) => update(cv, onChange, { display: { ...cv.display, showSocialLinks: v } })}
         />
         <Toggle
           label="Show PDF download button"
           checked={cv.display.showPdfButton}
           onChange={(v) => update(cv, onChange, { display: { ...cv.display, showPdfButton: v } })}
         />
+        <div className="pt-2 border-t border-hacker-green/10">
+          <p className="text-xs font-mono text-hacker-cyan/70 mb-2">--- Contacts ---</p>
+          <Toggle
+            label="Show all contacts"
+            checked={cv.display.contacts.showAll}
+            onChange={(v) => update(cv, onChange, {
+              display: {
+                ...cv.display,
+                contacts: { ...cv.display.contacts, showAll: v },
+              },
+            })}
+          />
+          <div className="pl-6 space-y-0.5">
+            <Toggle
+              label="Phone"
+              checked={cv.display.contacts.showPhone}
+              disabled={!cv.display.contacts.showAll}
+              onChange={(v) => update(cv, onChange, {
+                display: {
+                  ...cv.display,
+                  contacts: { ...cv.display.contacts, showPhone: v },
+                },
+              })}
+            />
+            <Toggle
+              label="Email"
+              checked={cv.display.contacts.showEmail}
+              disabled={!cv.display.contacts.showAll}
+              onChange={(v) => update(cv, onChange, {
+                display: {
+                  ...cv.display,
+                  contacts: { ...cv.display.contacts, showEmail: v },
+                },
+              })}
+            />
+            <Toggle
+              label="Telegram"
+              checked={cv.display.contacts.showTelegram}
+              disabled={!cv.display.contacts.showAll}
+              onChange={(v) => update(cv, onChange, {
+                display: {
+                  ...cv.display,
+                  contacts: { ...cv.display.contacts, showTelegram: v },
+                },
+              })}
+            />
+            <Toggle
+              label="GitHub"
+              checked={cv.display.contacts.showGithub}
+              disabled={!cv.display.contacts.showAll}
+              onChange={(v) => update(cv, onChange, {
+                display: {
+                  ...cv.display,
+                  contacts: { ...cv.display.contacts, showGithub: v },
+                },
+              })}
+            />
+            <Toggle
+              label="LinkedIn"
+              checked={cv.display.contacts.showLinkedin}
+              disabled={!cv.display.contacts.showAll}
+              onChange={(v) => update(cv, onChange, {
+                display: {
+                  ...cv.display,
+                  contacts: { ...cv.display.contacts, showLinkedin: v },
+                },
+              })}
+            />
+          </div>
+        </div>
       </Section>
     </div>
   );
@@ -614,17 +679,23 @@ function Toggle({
   label,
   checked,
   onChange,
+  disabled,
 }: {
   label: string;
   checked: boolean;
   onChange: (v: boolean) => void;
+  disabled?: boolean;
 }) {
   return (
-    <label className="flex items-center gap-3 cursor-pointer py-1">
+    <label className={`flex items-center gap-3 py-1 ${disabled ? 'opacity-40 cursor-not-allowed' : 'cursor-pointer'}`}>
       <div
-        onClick={() => onChange(!checked)}
+        onClick={() => !disabled && onChange(!checked)}
         className={`relative w-10 h-5 rounded-full transition-colors ${
-          checked ? 'bg-hacker-green' : 'bg-hacker-bg border border-hacker-green/30'
+          disabled
+            ? 'bg-hacker-bg border border-hacker-green/10'
+            : checked
+              ? 'bg-hacker-green'
+              : 'bg-hacker-bg border border-hacker-green/30'
         }`}
       >
         <div

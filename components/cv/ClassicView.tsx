@@ -1,5 +1,6 @@
 import { getCV, getTelegramLink, getTelLink, getMailtoLink } from '@/lib/cv';
 import { Briefcase, GraduationCap, Award, Languages, Heart, BookOpen } from 'lucide-react';
+import { ForDevsTrigger } from '@/components/cv/ForDevsTrigger';
 
 export function ClassicView() {
   const cv = getCV();
@@ -8,7 +9,7 @@ export function ClassicView() {
   return (
     <div id="cv-classic-content" className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors">
       <div className="max-w-5xl mx-auto px-6 py-12 md:py-20 print:py-0">
-        <Header personal={personal} showPhoto={display.showPhoto} showSocialLinks={display.showSocialLinks} />
+        <Header personal={personal} showPhoto={display.showPhoto} contactsCfg={display.contacts} />
 
         <Section title="Professional Summary" icon={<BookOpen className="w-5 h-5" />}>
           <p className="text-base md:text-lg leading-relaxed text-slate-700 dark:text-slate-300">
@@ -172,6 +173,9 @@ export function ClassicView() {
               year: 'numeric',
             })}
           </p>
+          <div className="mt-3">
+            <ForDevsTrigger />
+          </div>
         </footer>
       </div>
     </div>
@@ -181,12 +185,13 @@ export function ClassicView() {
 function Header({
   personal,
   showPhoto,
-  showSocialLinks,
+  contactsCfg,
 }: {
   personal: ReturnType<typeof getCV>['personal'];
   showPhoto: boolean;
-  showSocialLinks: boolean;
+  contactsCfg: { showAll: boolean; showPhone: boolean; showEmail: boolean; showTelegram: boolean; showGithub: boolean; showLinkedin: boolean };
 }) {
+  const c = contactsCfg;
   return (
     <header className="mb-10 pb-8 border-b border-slate-200 dark:border-slate-800">
       <div className="flex flex-col md:flex-row md:items-center gap-6">
@@ -213,35 +218,25 @@ function Header({
           <p className="text-xl md:text-2xl text-blue-600 dark:text-blue-400 font-semibold mt-1">
             {personal.title}
           </p>
-          {showSocialLinks && (
+          {c.showAll && (
             <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-600 dark:text-slate-400">
-              <a
-                href={getTelLink(personal.contacts.phone)}
-                className="hover:text-blue-600 dark:hover:text-blue-400"
-              >
-                {personal.contacts.phone}
-              </a>
-              <a
-                href={getMailtoLink(personal.contacts.email)}
-                className="hover:text-blue-600 dark:hover:text-blue-400"
-              >
-                {personal.contacts.email}
-              </a>
-              <a
-                href={getTelegramLink(personal.contacts.telegram)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-blue-600 dark:hover:text-blue-400"
-              >
-                Telegram: {personal.contacts.telegram}
-              </a>
-              {personal.contacts.linkedin && (
-                <a
-                  href={personal.contacts.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-blue-600 dark:hover:text-blue-400"
-                >
+              {c.showPhone && (
+                <a href={getTelLink(personal.contacts.phone)} className="hover:text-blue-600 dark:hover:text-blue-400">
+                  {personal.contacts.phone}
+                </a>
+              )}
+              {c.showEmail && (
+                <a href={getMailtoLink(personal.contacts.email)} className="hover:text-blue-600 dark:hover:text-blue-400">
+                  {personal.contacts.email}
+                </a>
+              )}
+              {c.showTelegram && (
+                <a href={getTelegramLink(personal.contacts.telegram)} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400">
+                  Telegram: {personal.contacts.telegram}
+                </a>
+              )}
+              {c.showLinkedin && personal.contacts.linkedin && (
+                <a href={personal.contacts.linkedin} target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 dark:hover:text-blue-400">
                   LinkedIn
                 </a>
               )}

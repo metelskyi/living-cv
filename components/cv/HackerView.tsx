@@ -4,6 +4,7 @@ import { SkillBar } from './SkillBar';
 import { Timeline } from './Timeline';
 import { ContactPR } from './ContactPR';
 import { LinkedInShare } from './LinkedInShare';
+import { ForDevsTrigger } from '@/components/cv/ForDevsTrigger';
 import { TerminalLines } from '@/components/decorations/TerminalLines';
 import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react';
 
@@ -27,7 +28,7 @@ export function HackerView() {
 
         <EducationAndMore cv={cv} />
 
-        {cv.display.showSocialLinks && <ContactPR contacts={cv.personal.contacts} />}
+        <ContactPR contacts={cv.personal.contacts} contactsCfg={cv.display.contacts} />
 
         <LinkedInShare />
 
@@ -143,43 +144,26 @@ function Block({
 }
 
 function Footer({ cv }: { cv: ReturnType<typeof getCV> }) {
+  const c = cv.display.contacts;
+  const show = c.showAll;
   return (
     <footer className="py-10 px-6 border-t border-hacker-green/20 mt-10">
       <div className="max-w-5xl mx-auto font-mono text-sm">
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-          <FooterItem
-            icon={<Mail className="w-4 h-4" />}
-            label="email"
-            value={cv.personal.contacts.email}
-            href={getMailtoLink(cv.personal.contacts.email)}
-          />
-          <FooterItem
-            icon={<Phone className="w-4 h-4" />}
-            label="phone"
-            value={cv.personal.contacts.phone}
-            href={getTelLink(cv.personal.contacts.phone)}
-          />
-          <FooterItem
-            icon={<Send className="w-4 h-4" />}
-            label="telegram"
-            value={cv.personal.contacts.telegram}
-            href={getTelegramLink(cv.personal.contacts.telegram)}
-          />
-          {cv.personal.contacts.github && (
-            <FooterItem
-              icon={<Github className="w-4 h-4" />}
-              label="github"
-              value="@IgorMet"
-              href={cv.personal.contacts.github}
-            />
+          {show && c.showEmail && (
+            <FooterItem icon={<Mail className="w-4 h-4" />} label="email" value={cv.personal.contacts.email} href={getMailtoLink(cv.personal.contacts.email)} />
           )}
-          {cv.personal.contacts.linkedin && (
-            <FooterItem
-              icon={<Linkedin className="w-4 h-4" />}
-              label="linkedin"
-              value="ihor-metelskyi"
-              href={cv.personal.contacts.linkedin}
-            />
+          {show && c.showPhone && (
+            <FooterItem icon={<Phone className="w-4 h-4" />} label="phone" value={cv.personal.contacts.phone} href={getTelLink(cv.personal.contacts.phone)} />
+          )}
+          {show && c.showTelegram && (
+            <FooterItem icon={<Send className="w-4 h-4" />} label="telegram" value={cv.personal.contacts.telegram} href={getTelegramLink(cv.personal.contacts.telegram)} />
+          )}
+          {show && c.showGithub && cv.personal.contacts.github && (
+            <FooterItem icon={<Github className="w-4 h-4" />} label="github" value="@IgorMet" href={cv.personal.contacts.github} />
+          )}
+          {show && c.showLinkedin && cv.personal.contacts.linkedin && (
+            <FooterItem icon={<Linkedin className="w-4 h-4" />} label="linkedin" value="ihor-metelskyi" href={cv.personal.contacts.linkedin} />
           )}
         </div>
         <div className="flex items-center gap-2 text-xs text-hacker-cyan/60 pt-4 border-t border-hacker-green/10">
@@ -188,6 +172,9 @@ function Footer({ cv }: { cv: ReturnType<typeof getCV> }) {
             {cv.personal.location.city}, {cv.personal.location.country}
           </span>
           <span className="ml-auto">© {new Date().getFullYear()} Ihor Metelskyi</span>
+        </div>
+        <div className="flex justify-center mt-4">
+          <ForDevsTrigger />
         </div>
       </div>
     </footer>

@@ -235,8 +235,15 @@
   },
   "display": {
     "showFooter": true,
-    "showSocialLinks": true,
     "showPdfButton": true,
-    "showPhoto": false
+    "showPhoto": false,
+    "contacts": {
+      "showAll": true,
+      "showPhone": true,
+      "showEmail": true,
+      "showTelegram": true,
+      "showGithub": true,
+      "showLinkedin": true
+    }
   }
 }
