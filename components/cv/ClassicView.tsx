@@ -6,7 +6,7 @@ export function ClassicView() {
   const { personal, summary, skillGroups, softSkills, experiences, education, courses, languages, interests } = cv;
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors">
+    <div id="cv-classic-content" className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors">
       <div className="max-w-5xl mx-auto px-6 py-12 md:py-20 print:py-0">
         <Header personal={personal} />
 
