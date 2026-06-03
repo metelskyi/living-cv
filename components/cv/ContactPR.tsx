@@ -110,38 +110,38 @@ export function ContactPR({ contacts, contactsCfg }: { contacts: ContactInfo; co
 
             <div className="pt-4 border-t border-hacker-green/20">
               <p className="text-hacker-cyan mb-3">## quick actions</p>
-              <div className="grid sm:grid-cols-2 gap-3">
+              <div className="flex flex-wrap gap-3">
                 {contactsCfg.showAll && contactsCfg.showEmail && (
                   <a href={getMailtoLink(contacts.email)} onClick={() => setSubmitted(true)}
-                    className="flex items-center gap-2 px-4 py-3 rounded-lg bg-hacker-green/10 hover:bg-hacker-green/20 border border-hacker-green/30 text-hacker-green transition-colors"
+                    className="flex items-center gap-2 px-4 py-3 rounded-lg bg-hacker-green/10 hover:bg-hacker-green/20 border border-hacker-green/30 text-hacker-green transition-colors flex-1 min-w-[180px]"
                   >
                     <Mail className="w-4 h-4 shrink-0" /><span className="truncate">Email me</span>
                   </a>
                 )}
                 {contactsCfg.showAll && contactsCfg.showTelegram && (
                   <a href={getTelegramLink(contacts.telegram)} target="_blank" rel="noopener noreferrer" onClick={() => setSubmitted(true)}
-                    className="flex items-center gap-2 px-4 py-3 rounded-lg bg-hacker-cyan/10 hover:bg-hacker-cyan/20 border border-hacker-cyan/30 text-hacker-cyan transition-colors"
+                    className="flex items-center gap-2 px-4 py-3 rounded-lg bg-hacker-cyan/10 hover:bg-hacker-cyan/20 border border-hacker-cyan/30 text-hacker-cyan transition-colors flex-1 min-w-[180px]"
                   >
                     <Send className="w-4 h-4 shrink-0" /><span className="truncate">Telegram: {contacts.telegram}</span>
                   </a>
                 )}
                 {contactsCfg.showAll && contactsCfg.showPhone && (
                   <a href={getTelLink(contacts.phone)}
-                    className="flex items-center gap-2 px-4 py-3 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/30 text-purple-400 transition-colors"
+                    className="flex items-center gap-2 px-4 py-3 rounded-lg bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/30 text-purple-400 transition-colors flex-1 min-w-[180px]"
                   >
                     <Phone className="w-4 h-4 shrink-0" /><span className="truncate">{contacts.phone}</span>
                   </a>
                 )}
                 {contactsCfg.showAll && contactsCfg.showGithub && contacts.github && (
                   <a href={contacts.github} target="_blank" rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-3 rounded-lg bg-slate-500/10 hover:bg-slate-500/20 border border-slate-400/30 text-slate-300 transition-colors"
+                    className="flex items-center gap-2 px-4 py-3 rounded-lg bg-slate-500/10 hover:bg-slate-500/20 border border-slate-400/30 text-slate-300 transition-colors flex-1 min-w-[180px]"
                   >
                     <GitMerge className="w-4 h-4 shrink-0" /><span className="truncate">GitHub</span>
                   </a>
                 )}
                 {contactsCfg.showAll && contactsCfg.showLinkedin && contacts.linkedin && (
                   <a href={contacts.linkedin} target="_blank" rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-3 rounded-lg bg-[#0a66c2]/10 hover:bg-[#0a66c2]/20 border border-[#0a66c2]/40 text-[#4d9ee0] transition-colors sm:col-span-2"
+                    className="flex items-center gap-2 px-4 py-3 rounded-lg bg-[#0a66c2]/10 hover:bg-[#0a66c2]/20 border border-[#0a66c2]/40 text-[#4d9ee0] transition-colors flex-1 min-w-[180px]"
                   >
                     <Linkedin className="w-4 h-4 shrink-0" /><span className="truncate">LinkedIn: {contacts.linkedin.replace('https://www.linkedin.com/in/', '@')}</span>
                   </a>

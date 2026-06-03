@@ -149,7 +149,7 @@ function Footer({ cv }: { cv: ReturnType<typeof getCV> }) {
   return (
     <footer className="py-10 px-6 border-t border-hacker-green/20 mt-10">
       <div className="max-w-5xl mx-auto font-mono text-sm">
-        <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <div className="flex flex-wrap gap-4 mb-6">
           {show && c.showEmail && (
             <FooterItem icon={<Mail className="w-4 h-4" />} label="email" value={cv.personal.contacts.email} href={getMailtoLink(cv.personal.contacts.email)} />
           )}
@@ -197,7 +197,7 @@ function FooterItem({
       href={href}
       target={href.startsWith('http') ? '_blank' : undefined}
       rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-      className="flex items-start gap-2 p-2 rounded hover:bg-hacker-green/5 transition-colors group"
+      className="flex items-start gap-2 p-2 rounded hover:bg-hacker-green/5 transition-colors group flex-1 min-w-[160px]"
     >
       <span className="text-hacker-green mt-0.5">{icon}</span>
       <div className="min-w-0">
