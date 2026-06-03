@@ -235,14 +235,14 @@
   },
   "display": {
     "showFooter": true,
-    "showPdfButton": true,
+    "showPdfButton": false,
     "showPhoto": false,
     "contacts": {
       "showAll": true,
-      "showPhone": true,
+      "showPhone": false,
       "showEmail": true,
       "showTelegram": true,
-      "showGithub": true,
+      "showGithub": false,
       "showLinkedin": true
     }
   }
