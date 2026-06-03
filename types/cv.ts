@@ -76,6 +76,13 @@ export interface CVStats {
   testCasesAuthored: number;
 }
 
+export interface Display {
+  showFooter: boolean;
+  showSocialLinks: boolean;
+  showPdfButton: boolean;
+  showPhoto: boolean;
+}
+
 export interface CV {
   personal: Personal;
   summary: string;
@@ -88,6 +95,7 @@ export interface CV {
   languages: Language[];
   interests: string[];
   stats: CVStats;
+  display: Display;
 }
 
 export type ViewMode = 'classic' | 'hacker';

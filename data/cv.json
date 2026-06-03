@@ -232,5 +232,11 @@
     "projects": 3,
     "platforms": 3,
     "testCasesAuthored": 967
+  },
+  "display": {
+    "showFooter": true,
+    "showSocialLinks": true,
+    "showPdfButton": true,
+    "showPhoto": false
   }
 }

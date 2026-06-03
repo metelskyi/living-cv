@@ -27,11 +27,11 @@ export function HackerView() {
 
         <EducationAndMore cv={cv} />
 
-        <ContactPR contacts={cv.personal.contacts} />
+        {cv.display.showSocialLinks && <ContactPR contacts={cv.personal.contacts} />}
 
         <LinkedInShare />
 
-        <Footer cv={cv} />
+        {cv.display.showFooter && <Footer cv={cv} />}
       </div>
     </div>
   );

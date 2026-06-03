@@ -3,10 +3,11 @@
 import { useEffect, useState } from 'react';
 import { useSession, signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { Save, Send, LogOut, Loader2, Check, AlertCircle, Github } from 'lucide-react';
+import { Save, Send, LogOut, Loader2, Check, AlertCircle, Github, Terminal } from 'lucide-react';
 import type { CV } from '@/types/cv';
 import { CVEditor } from '@/components/admin/CVEditor';
 import { LivePreview } from '@/components/admin/LivePreview';
+import { ForDevsDialog } from '@/components/admin/ForDevsDialog';
 
 export default function AdminPage() {
   const { data: session, status } = useSession();
@@ -16,6 +17,7 @@ export default function AdminPage() {
   const [saving, setSaving] = useState(false);
   const [publishing, setPublishing] = useState(false);
   const [saveMsg, setSaveMsg] = useState<{ type: 'ok' | 'err'; text: string } | null>(null);
+  const [forDevsOpen, setForDevsOpen] = useState(false);
 
   useEffect(() => {
     if (status === 'unauthenticated') {
@@ -136,6 +138,13 @@ export default function AdminPage() {
               Publish
             </button>
             <button
+              onClick={() => setForDevsOpen(true)}
+              className="flex items-center gap-1 px-3 py-1.5 text-sm font-mono rounded border border-purple-500/40 bg-purple-500/10 hover:bg-purple-500/20 text-purple-400"
+            >
+              <Terminal className="w-3 h-3" />
+              For Devs
+            </button>
+            <button
               onClick={() => signOut({ callbackUrl: '/' })}
               className="flex items-center gap-1 px-3 py-1.5 text-sm font-mono rounded border border-slate-500/40 bg-slate-500/10 hover:bg-slate-500/20 text-slate-300"
             >
@@ -158,6 +167,8 @@ export default function AdminPage() {
           </div>
         </div>
       </div>
+
+      <ForDevsDialog open={forDevsOpen} onClose={() => setForDevsOpen(false)} />
     </div>
   );
 }

@@ -8,6 +8,7 @@ import { HackerView } from '@/components/cv/HackerView';
 import { ModeToggle } from '@/components/cv/ModeToggle';
 import { ThemeToggle } from '@/components/cv/ThemeToggle';
 import { PrintButton } from '@/components/cv/PrintButton';
+import { getCV } from '@/lib/cv';
 
 export default function HomePage() {
   const { mode, setMode } = useMode();
@@ -56,7 +57,7 @@ export default function HomePage() {
 
       <div className="no-print fixed bottom-6 right-6 z-50 flex flex-col gap-3">
         {mode === 'classic' && <ThemeToggle />}
-        <PrintButton />
+        {getCV().display.showPdfButton && <PrintButton />}
         <ModeToggle />
       </div>
     </main>

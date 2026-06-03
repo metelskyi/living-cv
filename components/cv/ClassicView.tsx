@@ -3,12 +3,12 @@ import { Briefcase, GraduationCap, Award, Languages, Heart, BookOpen } from 'luc
 
 export function ClassicView() {
   const cv = getCV();
-  const { personal, summary, skillGroups, softSkills, experiences, education, courses, languages, interests } = cv;
+  const { personal, summary, skillGroups, softSkills, experiences, education, courses, languages, interests, display } = cv;
 
   return (
     <div id="cv-classic-content" className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors">
       <div className="max-w-5xl mx-auto px-6 py-12 md:py-20 print:py-0">
-        <Header personal={personal} />
+        <Header personal={personal} showPhoto={display.showPhoto} showSocialLinks={display.showSocialLinks} />
 
         <Section title="Professional Summary" icon={<BookOpen className="w-5 h-5" />}>
           <p className="text-base md:text-lg leading-relaxed text-slate-700 dark:text-slate-300">
@@ -180,19 +180,31 @@ export function ClassicView() {
 
 function Header({
   personal,
+  showPhoto,
+  showSocialLinks,
 }: {
   personal: ReturnType<typeof getCV>['personal'];
+  showPhoto: boolean;
+  showSocialLinks: boolean;
 }) {
   return (
     <header className="mb-10 pb-8 border-b border-slate-200 dark:border-slate-800">
       <div className="flex flex-col md:flex-row md:items-center gap-6">
         <div className="flex-shrink-0">
-          <div className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-4xl font-bold shadow-lg">
-            {personal.name
-              .split(' ')
-              .map((n) => n[0])
-              .join('')}
-          </div>
+          {showPhoto && personal.photo ? (
+            <img
+              src={personal.photo}
+              alt={personal.name}
+              className="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover shadow-lg border-2 border-slate-200 dark:border-slate-700"
+            />
+          ) : (
+            <div className="w-28 h-28 md:w-32 md:h-32 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-4xl font-bold shadow-lg">
+              {personal.name
+                .split(' ')
+                .map((n) => n[0])
+                .join('')}
+            </div>
+          )}
         </div>
         <div className="flex-1">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900 dark:text-white">
@@ -201,41 +213,43 @@ function Header({
           <p className="text-xl md:text-2xl text-blue-600 dark:text-blue-400 font-semibold mt-1">
             {personal.title}
           </p>
-          <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-600 dark:text-slate-400">
-            <a
-              href={getTelLink(personal.contacts.phone)}
-              className="hover:text-blue-600 dark:hover:text-blue-400"
-            >
-              {personal.contacts.phone}
-            </a>
-            <a
-              href={getMailtoLink(personal.contacts.email)}
-              className="hover:text-blue-600 dark:hover:text-blue-400"
-            >
-              {personal.contacts.email}
-            </a>
-            <a
-              href={getTelegramLink(personal.contacts.telegram)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-blue-600 dark:hover:text-blue-400"
-            >
-              Telegram: {personal.contacts.telegram}
-            </a>
-            {personal.contacts.linkedin && (
+          {showSocialLinks && (
+            <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-600 dark:text-slate-400">
               <a
-                href={personal.contacts.linkedin}
+                href={getTelLink(personal.contacts.phone)}
+                className="hover:text-blue-600 dark:hover:text-blue-400"
+              >
+                {personal.contacts.phone}
+              </a>
+              <a
+                href={getMailtoLink(personal.contacts.email)}
+                className="hover:text-blue-600 dark:hover:text-blue-400"
+              >
+                {personal.contacts.email}
+              </a>
+              <a
+                href={getTelegramLink(personal.contacts.telegram)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-blue-600 dark:hover:text-blue-400"
               >
-                LinkedIn
+                Telegram: {personal.contacts.telegram}
               </a>
-            )}
-            <span>
-              {personal.location.city}, {personal.location.country}
-            </span>
-          </div>
+              {personal.contacts.linkedin && (
+                <a
+                  href={personal.contacts.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-blue-600 dark:hover:text-blue-400"
+                >
+                  LinkedIn
+                </a>
+              )}
+              <span>
+                {personal.location.city}, {personal.location.country}
+              </span>
+            </div>
+          )}
         </div>
       </div>
     </header>

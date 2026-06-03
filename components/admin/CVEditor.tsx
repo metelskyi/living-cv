@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { ChevronDown, User, FileText, Code, Briefcase, GraduationCap, BookOpen, Heart, Plus, Trash2, BarChart3 } from 'lucide-react';
+import { useState, useRef } from 'react';
+import { ChevronDown, User, FileText, Code, Briefcase, GraduationCap, BookOpen, Heart, Plus, Trash2, BarChart3, Eye, Upload } from 'lucide-react';
 import type { CV, Experience, SkillGroup, Education, Course, Language } from '@/types/cv';
 import { cn } from '@/lib/utils';
 
@@ -10,7 +10,7 @@ interface CVEditorProps {
   onChange: (cv: CV) => void;
 }
 
-type SectionId = 'personal' | 'summary' | 'hero' | 'stats' | 'skills' | 'softSkills' | 'experience' | 'education' | 'courses' | 'languages' | 'interests';
+type SectionId = 'personal' | 'summary' | 'hero' | 'stats' | 'skills' | 'softSkills' | 'experience' | 'education' | 'courses' | 'languages' | 'interests' | 'display';
 
 export function CVEditor({ cv, onChange }: CVEditorProps) {
   const [open, setOpen] = useState<Set<SectionId>>(new Set(['personal', 'experience']));
@@ -70,6 +70,11 @@ export function CVEditor({ cv, onChange }: CVEditorProps) {
           label="City"
           value={cv.personal.location.city}
           onChange={(v) => update(cv, onChange, { personal: { ...cv.personal, location: { ...cv.personal.location, city: v } } })}
+        />
+        <PhotoUpload
+          label="Photo"
+          value={cv.personal.photo || ''}
+          onChange={(v) => update(cv, onChange, { personal: { ...cv.personal, photo: v } })}
         />
       </Section>
 
@@ -339,6 +344,35 @@ export function CVEditor({ cv, onChange }: CVEditorProps) {
           placeholder="Add an interest"
         />
       </Section>
+
+      <Section
+        id="display"
+        title="Display"
+        icon={<Eye className="w-4 h-4" />}
+        open={open.has('display')}
+        onToggle={() => toggle('display')}
+      >
+        <Toggle
+          label="Show photo avatar (instead of initials)"
+          checked={cv.display.showPhoto}
+          onChange={(v) => update(cv, onChange, { display: { ...cv.display, showPhoto: v } })}
+        />
+        <Toggle
+          label="Show footer (social networks, copyright)"
+          checked={cv.display.showFooter}
+          onChange={(v) => update(cv, onChange, { display: { ...cv.display, showFooter: v } })}
+        />
+        <Toggle
+          label="Show social links in header / contact section"
+          checked={cv.display.showSocialLinks}
+          onChange={(v) => update(cv, onChange, { display: { ...cv.display, showSocialLinks: v } })}
+        />
+        <Toggle
+          label="Show PDF download button"
+          checked={cv.display.showPdfButton}
+          onChange={(v) => update(cv, onChange, { display: { ...cv.display, showPdfButton: v } })}
+        />
+      </Section>
     </div>
   );
 }
@@ -572,6 +606,101 @@ function SkillGroupEditor({
       >
         <Plus className="w-3 h-3" /> Add skill
       </button>
+    </div>
+  );
+}
+
+function Toggle({
+  label,
+  checked,
+  onChange,
+}: {
+  label: string;
+  checked: boolean;
+  onChange: (v: boolean) => void;
+}) {
+  return (
+    <label className="flex items-center gap-3 cursor-pointer py-1">
+      <div
+        onClick={() => onChange(!checked)}
+        className={`relative w-10 h-5 rounded-full transition-colors ${
+          checked ? 'bg-hacker-green' : 'bg-hacker-bg border border-hacker-green/30'
+        }`}
+      >
+        <div
+          className={`absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-white transition-transform ${
+            checked ? 'translate-x-5' : 'translate-x-0'
+          }`}
+        />
+      </div>
+      <span className="text-sm font-mono text-hacker-fg">{label}</span>
+    </label>
+  );
+}
+
+function PhotoUpload({
+  label,
+  value,
+  onChange,
+}: {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+}) {
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (!file.type.startsWith('image/')) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      onChange(reader.result as string);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  return (
+    <div className="space-y-2">
+      <span className="text-xs font-mono text-hacker-cyan/70">{label}</span>
+      {value && (
+        <div className="flex items-center gap-3">
+          <img
+            src={value}
+            alt="avatar preview"
+            className="w-12 h-12 rounded-full object-cover border border-hacker-green/30"
+          />
+          <button
+            onClick={() => onChange('')}
+            className="text-xs font-mono text-hacker-red/60 hover:text-hacker-red"
+          >
+            Remove
+          </button>
+        </div>
+      )}
+      <div className="flex items-center gap-2">
+        <input
+          ref={inputRef}
+          type="file"
+          accept="image/*"
+          onChange={handleFile}
+          className="hidden"
+        />
+        <button
+          onClick={() => inputRef.current?.click()}
+          className="flex items-center gap-1 px-3 py-1.5 text-xs font-mono rounded border border-hacker-green/30 bg-hacker-green/10 hover:bg-hacker-green/20 text-hacker-green"
+        >
+          <Upload className="w-3 h-3" />
+          {value ? 'Change photo' : 'Upload photo'}
+        </button>
+        <input
+          type="text"
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          placeholder="Or paste image URL..."
+          className="flex-1 px-2 py-1.5 text-xs font-mono bg-hacker-bg border border-hacker-green/20 rounded text-hacker-fg focus:border-hacker-green focus:outline-none"
+        />
+      </div>
     </div>
   );
 }
