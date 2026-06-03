@@ -18,7 +18,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || 'https://ihor-metelskyi.vercel.app';
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://cv-ihor-metelskyi.vercel.app';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
