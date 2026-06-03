@@ -1,9 +1,9 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useSession, signOut } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
-import { Save, Send, LogOut, Loader2, Check, AlertCircle, Github, Terminal } from 'lucide-react';
+import { Save, Send, LogOut, Loader2, Check, AlertCircle, Github, Terminal, Eye } from 'lucide-react';
 import type { CV } from '@/types/cv';
 import { CVEditor } from '@/components/admin/CVEditor';
 import { LivePreview } from '@/components/admin/LivePreview';
@@ -18,12 +18,21 @@ export default function AdminPage() {
   const [publishing, setPublishing] = useState(false);
   const [saveMsg, setSaveMsg] = useState<{ type: 'ok' | 'err'; text: string } | null>(null);
   const [forDevsOpen, setForDevsOpen] = useState(false);
+  const [visits, setVisits] = useState<{ totalVisits: number; uniqueVisitors: number } | null>(null);
 
   useEffect(() => {
     if (status === 'unauthenticated') {
       router.push('/admin/signin?callbackUrl=/admin');
     }
   }, [status, router]);
+
+  const fetchVisits = useCallback(async () => {
+    try {
+      const res = await fetch('/api/visits');
+      const data = await res.json();
+      setVisits(data);
+    } catch { /* ignore */ }
+  }, []);
 
   useEffect(() => {
     fetch('/api/cv')
@@ -33,7 +42,10 @@ export default function AdminPage() {
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, []);
+    fetchVisits();
+    const interval = setInterval(fetchVisits, 30000);
+    return () => clearInterval(interval);
+  }, [fetchVisits]);
 
   const handleSave = async () => {
     if (!cv) return;
@@ -106,6 +118,12 @@ export default function AdminPage() {
           <span className="font-mono text-xs text-hacker-cyan/60">
             {session.user?.email}
           </span>
+          {visits && (
+            <span className="font-mono text-xs text-yellow-400/80 flex items-center gap-1">
+              <Eye className="w-3 h-3" />
+              {visits.totalVisits} · {visits.uniqueVisitors} uniq
+            </span>
+          )}
           <div className="ml-auto flex items-center gap-2">
             {saveMsg && (
               <span

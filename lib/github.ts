@@ -80,6 +80,31 @@ export async function commitFile(
   return (await res.json()) as CommitResponse;
 }
 
+export async function readStatsFromGitHub(): Promise<{ content: string; sha: string } | null> {
+  const cfg = getGitHubConfig();
+  if (!cfg) return null;
+  const file = await getFile(cfg, 'data/stats.json');
+  if (!file) return null;
+  if (file.encoding !== 'base64') {
+    throw new Error(`Unexpected encoding: ${file.encoding}`);
+  }
+  return {
+    content: Buffer.from(file.content, 'base64').toString('utf-8'),
+    sha: file.sha,
+  };
+}
+
+export async function writeStatsToGitHub(
+  content: string,
+  sha: string,
+  message = 'chore(stats): update visit counter'
+): Promise<{ url: string; sha: string }> {
+  const cfg = getGitHubConfig();
+  if (!cfg) throw new Error('GitHub config not configured');
+  const result = await commitFile(cfg, 'data/stats.json', content, message, sha);
+  return { url: result.commit.html_url, sha: result.content.sha };
+}
+
 export async function readCVFromGitHub(): Promise<{ content: string; sha: string } | null> {
   const cfg = getGitHubConfig();
   if (!cfg) return null;

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useMode } from '@/components/providers/ModeProvider';
 import { ClassicView } from '@/components/cv/ClassicView';
@@ -16,6 +16,7 @@ export default function HomePage() {
 
   useEffect(() => {
     setMounted(true);
+    fetch('/api/visits', { method: 'POST' }).catch(() => {});
   }, []);
 
   useEffect(() => {
